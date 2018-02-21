@@ -1,10 +1,10 @@
-﻿@model eCMS.DataLogic.Models.CaseSummary
+﻿@model eCMS.DataLogic.ViewModels.CaseSummaryVM
 @using EasySoft.Helper;
 @using eCMS.Shared;
 @using eCMS.DataLogic.Models;
 @using eCMS.DataLogic.ViewModels;
 @{
-    //Layout = "~/Views/Shared/_LayoutInternal.cshtml";
+    Layout = "~/Views/Shared/_LayoutInternal.cshtml";
     ViewBag.Title = "Case Summary";
 }
 @section headsection
@@ -12,17 +12,106 @@
     @Styles.Render("~/assets/plugins/kendo/css")
     @Scripts.Render("~/assets/plugins/kendo/js")
 }
-<div class="container candidate-list-main-container">
-    <div class="row">
-        <div class="col-lg-12 col-md-11 candidate-table-bg">
-            <div class="row">
-                <div class="col-md-3">
-                    <label class="control-label labe-text">Test</label>
-                    <label class="control-label labe-text">@Html.DisplayFor(model => model.EnrollDate)</label>
-                </div>
-            </div>
+
+@*<label class="control-label labe-text">Test</label>
+    <label class="control-label labe-text">@Html.DisplayFor(model => model.EnrollDate)</label>*@
+<div class="container bulk-import">
+    <div class="row margin-top-40">
+        <div class="center-block" style="align-items:center;">
+            <table class="table table-striped text-align-center" align="center" style="width:50%">
+                <thead>
+                    <tr><td><label class="control-label labe-text">Demographics:</label></td></tr>
+                    
+</thead>
+                <tr>
+                    <td>
+                        <label class="control-label labe-text">Program:</label>
+                    </td>
+                    <td style="vertical-align:central;">
+                        @Html.DisplayFor(model => model.Program)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="control-label labe-text">Primary Coordinator:</label>
+                    </td>
+                    <td>@Html.DisplayFor(model => model.SubProgram)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="control-label labe-text">Region:</label>
+                    </td>
+                    <td>@Html.DisplayFor(model => model.Region)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="control-label labe-text">Jamatkhana:</label>
+                    </td>
+                    <td>@Html.DisplayFor(model => model.Jamatkhaana)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="control-label labe-text">Reference Case:</label>
+                    </td>
+                    <td>@Html.DisplayFor(model => model.ReferenceCase)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="control-label labe-text">Enrollment Date:</label>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.EnrolmentDate)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="control-label labe-text">Intake Method:</label>
+                    </td>
+                    <td>@Html.DisplayFor(model => model.IntakeMethod)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="control-label labe-text">Referral Source:</label>
+                    </td>
+                    <td>@Html.DisplayFor(model => model.ReferralSource)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="control-label labe-text">Referral Date:</label>
+                    </td>
+                    <td>@Html.DisplayFor(model => model.ReferralDate)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="control-label labe-text">Risk Level:</label>
+                    </td>
+                    <td>@Html.DisplayFor(model => model.RiskLevel)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="control-label labe-text">Presenting Problem (Reason for seeking support):</label>
+                    </td>
+                    <td>@Html.DisplayFor(model => model.PresentingProblem)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="control-label labe-text">Address:</label>
+                    </td>
+                    <td>@Html.DisplayFor(model => model.Address)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="control-label labe-text">City:</label>
+                    </td>
+                    <td>@Html.DisplayFor(model => model.City)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="control-label labe-text">Postal Code:</label>
+                    </td>
+                    <td>@Html.DisplayFor(model => model.PostalCode)</td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>
-
-

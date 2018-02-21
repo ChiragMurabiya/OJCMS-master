@@ -280,7 +280,11 @@ namespace eCMS.Web.Areas.CaseManagement.Controllers
                 //validate data
                 if (ModelState.IsValid)
                 {
-                    if ((varCase.ProgramID == 3 && varCase.PresentingProblem != null) || (varCase.ProgramID == 4 && varCase.PresentingProblem == null) || (varCase.ProgramID == 1 && varCase.PresentingProblem == null) || (varCase.ProgramID == 2 && varCase.PresentingProblem == null))
+                    if ( 
+                        (varCase.ProgramID == 4 && varCase.PresentingProblem == null) || 
+                        (varCase.ProgramID == 1 && varCase.PresentingProblem == null) || 
+                        (varCase.ProgramID == 2 && varCase.PresentingProblem == null) ||
+                        (varCase.ProgramID == 3 && varCase.PresentingProblem != null))
                     {
                         //call the repository function to save in database
                         caseRepository.InsertOrUpdate(varCase);

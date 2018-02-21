@@ -3,6 +3,7 @@ using eCMS.BusinessLogic.Helpers;
 using eCMS.BusinessLogic.Repositories;
 using eCMS.DataLogic.Models;
 using eCMS.DataLogic.Models;
+using eCMS.DataLogic.ViewModels;
 using eCMS.ExceptionLoging;
 using eCMS.Shared;
 using eCMS.Web.Controllers;
@@ -18,6 +19,8 @@ namespace eCMS.Web.Areas.CaseManagement.Controllers
 {
     public class CaseSummaryController : CaseBaseController
     {
+        private readonly ICaseSummaryRepository _casesummaryrepository;
+
         public CaseSummaryController(IWorkerRepository workerRepository,
            ICaseRepository caseRepository,
            IRelationshipStatusRepository relationshipstatusRepository,
@@ -30,6 +33,7 @@ namespace eCMS.Web.Areas.CaseManagement.Controllers
            ICaseMemberRepository casememberRepository,
            ICaseWorkerRepository caseworkerRepository,
           IWorkerRoleRepository workerRoleRepository,
+           ICaseSummaryRepository caseSummaryRepository,
            IWorkerRoleActionPermissionRepository workerroleactionpermissionRepository
            , IWorkerRoleActionPermissionNewRepository workerroleactionpermissionnewRepository
           )
@@ -46,6 +50,8 @@ namespace eCMS.Web.Areas.CaseManagement.Controllers
             this.casememberRepository = casememberRepository;
             this.caseworkerRepository = caseworkerRepository;
             this.workerroleRepository = workerRoleRepository;
+            this._casesummaryrepository = caseSummaryRepository;
+
         }
 
 
@@ -60,15 +66,7 @@ namespace eCMS.Web.Areas.CaseManagement.Controllers
                 return RedirectToAction(Constants.Actions.AccessDenied, Constants.Controllers.Home, new { Area = String.Empty });
             }
 
-            CaseSummary caseSummary = new CaseSummary();
-            if (varCase != null)
-            {
-                caseSummary.ID = caseID;
-                caseSummary.DisplayID = varCase.DisplayID;
-                //caseSummary.caseModel.ProgramID = varCase.ProgramID;
-                caseSummary.EnrollDate = varCase.EnrollDate;
-                ViewBag.DisplayID = varCase.DisplayID;
-            }
+            CaseSummaryVM caseSummary = _casesummaryrepository.GetCaseDetails(caseID);
 
             return View(caseSummary);                       
         }

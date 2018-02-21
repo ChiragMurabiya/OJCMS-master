@@ -190,6 +190,7 @@
     <Compile Include="SeedData\LookupSeed.cs" />
     <Compile Include="SeedData\WorkerSeed.cs" />
     <Compile Include="ViewModels\CaseListViewModel.cs" />
+    <Compile Include="ViewModels\CaseSummaryVM.cs" />
     <Compile Include="ViewModels\ChangePasswordModel.cs" />
     <Compile Include="ViewModels\AssignmentModel.cs" />
     <Compile Include="ViewModels\CaseProgressModel.cs" />

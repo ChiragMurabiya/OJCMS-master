@@ -145,6 +145,7 @@
     <Compile Include="Repositories\CaseManagement\CaseSmartGoalServiceProviderRepository.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Repositories\CaseManagement\CaseSummaryRepository.cs" />
     <Compile Include="Repositories\CaseManagement\CaseSupportCircleRepository.cs" />
     <Compile Include="Repositories\CaseManagement\CaseWorkerMemberAssignmentRepository.cs" />
     <Compile Include="Repositories\CaseManagement\CaseTrainingRepository.cs" />

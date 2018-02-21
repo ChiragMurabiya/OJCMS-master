@@ -162,6 +162,7 @@ namespace eCMS.Web.DependencyInjection
             containerBuilder.Register(container => new ActionMethodRepository(container.Resolve<RepositoryContext>())).As<IActionMethodRepository>();
             containerBuilder.Register(container => new WorkerRolePermissionNewRepository(container.Resolve<RepositoryContext>())).As<IWorkerRolePermissionNewRepository>();
             containerBuilder.Register(container => new ReportRepository()).As<IReportRepository>();
+            containerBuilder.Register(container => new CaseSummaryRepository(container.Resolve<RepositoryContext>())).As<ICaseSummaryRepository>();
         }
     }
 }
